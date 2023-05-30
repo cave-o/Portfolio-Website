@@ -1,22 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
-<h1 style="text-align: center;">Projects Completed</h1>
+<div class="container">
+    <div class="jumbotron"
+        style="background-image: url('./project/media/images/code.jpg'); background-size: cover; background-position: center;">
+        <div class="text-center">
+            <h1 style="color: white;">Hello, I'm Kev</h1>
+            <p style="color: white;">a web developer</p>
+            <a href="#" class="btn btn-primary btn-lg">Get Started</a>
+        </div>
+    </div>
+</div>
+<br>
+<h1 style="text-align: center;">Projects Ongoing</h1>
 <br>
 <div class="row">
-{% for project in projects %}
+    {% for project in projects %}
     <div class="col-md-4">
         <div class="card mb-2">
             <img class="card-img-top" src="{{ project.image.url }}">
             <div class="card-body">
                 <h5 class="card-title">{{ project.title }}</h5>
                 <p class="card-text">{{ project.description }}</p>
-                <a href="{% url 'full_view' project.pk %}"
-                   class="btn btn-primary">
+                <a href="{% url 'full_view' project.pk %}" class="btn btn-primary">
                     Read More
                 </a>
             </div>
         </div>
     </div>
- {% endfor %}
+    {% endfor %}
 </div>
 {% endblock %}
